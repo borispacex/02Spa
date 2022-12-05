@@ -1,2 +1,43 @@
 <p>about works!</p>
 <h1>ABOUT</h1>
+<div class="container">
+    <!-- ngIf -->
+    <p *ngIf="edad > 18">Es mayor de edad</p>
+    <!-- ngFor -->
+    <small *ngFor="let item of numeros">item</small>
+    <!-- ngSwitch -->
+    <div [ngSwitch]="variable">
+        <p *ngSwitchCase="'A'">Respuesta A</p>
+        <p *ngSwitchCase="'B'">Respuesta B</p>
+        <p *ngSwitchDefault>Respuesta default</p>
+    </div>
+    <!-- ngClass -->
+    <p class="verde">Forma normal</p>
+    <h5 [ngClass]="['verde']">Forma 1 de llamar clase</h5>
+    <h4 [ngClass]="{'verde': edad > 18, 'fondoRojo': true }">Forma 2 de llamar</h4>
+    <h3 [ngClass]="misClases()">Llamado de funcion</h3>
+    <!-- ngStyles -->
+    <button [ngStyle]="{
+        'backgroundColor': edad > 18 ? 'pink' : 'blue',
+        'padding': '30px',
+        'margin-top': '50px',
+        'color': 'white'
+    }">
+        Un simple boton
+    </button>
+    <br>
+    <button [ngStyle]="misEstilos()">
+        Un simple boton 2
+    </button>
+    <!-- ngModel -->
+    <input class="form-control" type="text" [(ngModel)]="nombre">
+    <button (click)="cambiarMayusculas()">mayusculas</button>
+    <p>{{nombre}}</p>
+</div>
+
+
+
+
+
+
+
