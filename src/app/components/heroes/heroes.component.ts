@@ -11,7 +11,7 @@ export class HeroesComponent implements OnInit{
   // array de heroes
   heroes: Heroe[] = [];
 
-  constructor(private _serviceHeroes: HeroesService, private router: Router) { }
+  constructor(private _serviceHeroes: HeroesService) { }
 
   ngOnInit() {
     this.heroes = this._serviceHeroes.getHeroes();
@@ -20,6 +20,7 @@ export class HeroesComponent implements OnInit{
 
   // sera llamado desde el componente HIJO heroe-tarjeta
   verHeroe(idx: number) {
-    this.router.navigate(['/heroe', idx]);
+    console.log('Recibiendo de componente HIJO : ' + idx);
+    // this.router.navigate(['/heroe', idx]);
   }
 }

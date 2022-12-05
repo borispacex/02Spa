@@ -34,8 +34,29 @@
     <!-- DIRECTIVES -->
     <p appAppHighLight>Hola a todos</p>
 
+    
+    <p *ngIf="edad> 18">Es mayor de edad</p>
+    <p *ngFor="let item of ciudades">{{ item }}</p>
+        <!--
+    <p>La Paz</p>
+    <p>Tarija</p>
+    <p>Cochabamba</p>
+    <p>Potosi</p>
+    -->
 
+    <div *ngFor="let emp of empleados">
+      <h4>{{emp.nombre}} {{emp.apellido}}</h4>
+      <p >{{emp.edad}}</p>
+      <div *ngIf="emp.edad < 18; else mayorEdad">
+        <small>Es menor de edad</small>
+      </div>
+      <ng-template #mayorEdad>
+        <small>Es mayor de edad</small>
+      </ng-template>
+    </div>
 
+    <br>
+    <br>
   </div>
 </main>
 <!-- FIN HOME -->

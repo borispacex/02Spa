@@ -9,8 +9,8 @@ import { Heroe } from 'src/app/services/heroes.service';
 })
 export class HeroeTarjetaComponent implements OnInit {
 
-  @Input() heroe!: Heroe;
-  @Input() index!: number;
+  @Input() heroe!: Heroe; // {id: nomnre, }
+  @Input() index!: number; // i
 
   @Output() heroeSeleccionado: EventEmitter<number>;  // HIJO
 
@@ -24,9 +24,9 @@ export class HeroeTarjetaComponent implements OnInit {
   }
 
   verHeroe() {
-    console.log(this.index);
+    console.log('Enviando index a componente PADRE : ' + this.index);
+    this.heroeSeleccionado.emit(100);
     // this.router.navigate(['/heroe', this.index]);
-    // this.heroeSeleccionado.emit(this.index);
   }
 
 }
