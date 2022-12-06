@@ -1,0 +1,43 @@
+<div class="card container mt-5">
+    <div class="card-body">
+        <h1 class="card-title">Registro Usuario</h1>
+        <form [formGroup]="registroUserForm">
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2">Nombres: </label>
+                <div class="col-md-5">
+                    <input type="text" id="nombres" formControlName="nombres" class="form-control">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2">Apellidos: </label>
+                <div class="col-md-5">
+                    <input type="text" id="apellidos" formControlName="apellidos" class="form-control">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2">Email: </label>
+                <div class="col-md-5">
+                    <input type="email" id="email" formControlName="email" class="form-control">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2">Password: </label>
+                <div class="col-md-5">
+                    <input type="password" id="password" formControlName="password" class="form-control">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2">Confirmar password: </label>
+                <div class="col-md-5">
+                    <input type="password" id="confirmarPassword" formControlName="confirmarPassword" class="form-control">
+                </div>
+            </div>
+            <br>
+            <div class="mb-3 row">
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-info" (click)="registrarUser()">Registrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

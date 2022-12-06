@@ -11,8 +11,9 @@ import { VowelToNumberPipe } from './pipes/vowel-to-number.pipe';
 import { AppHighLightDirective } from './directives/app-high-light.directive';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { AboutComponent } from './components/about/about.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeroeComponent } from './components/heroe/heroe.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,14 @@ import { HeroeComponent } from './components/heroe/heroe.component';
     AppHighLightDirective,
     HeroesComponent,
     AboutComponent,
-    HeroeComponent
+    HeroeComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

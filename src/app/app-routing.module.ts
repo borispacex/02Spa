@@ -1,3 +1,4 @@
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
@@ -6,6 +7,7 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
+  { path: 'register-user', component: RegisterUserComponent },
   { path: 'heroe/:id', component: HeroeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'heroes', component: HeroesComponent },
