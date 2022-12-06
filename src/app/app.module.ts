@@ -10,9 +10,9 @@ import { ReversePipe } from './pipes/reverse.pipe';
 import { VowelToNumberPipe } from './pipes/vowel-to-number.pipe';
 import { AppHighLightDirective } from './directives/app-high-light.directive';
 import { HeroesComponent } from './components/heroes/heroes.component';
-import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.component';
 import { AboutComponent } from './components/about/about.component';
 import { FormsModule } from '@angular/forms';
+import { HeroeComponent } from './components/heroe/heroe.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,8 @@ import { FormsModule } from '@angular/forms';
     VowelToNumberPipe,
     AppHighLightDirective,
     HeroesComponent,
-    HeroeTarjetaComponent,
-    AboutComponent
-    
+    AboutComponent,
+    HeroeComponent
   ],
   imports: [
     BrowserModule,
