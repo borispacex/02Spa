@@ -1,17 +1,26 @@
 <div class="card container mt-5">
     <div class="card-body">
         <h1 class="card-title">Registro Usuario</h1>
-        <form [formGroup]="registroUserForm">
+        <form [formGroup]="registroUserForm" (ngSubmit)="registrarUser()">
             <div class="mb-3 row">
                 <label class="col-form-label col-sm-2">Nombres: </label>
                 <div class="col-md-5">
                     <input type="text" id="nombres" formControlName="nombres" class="form-control">
                 </div>
+                <div class="col-md-5">
+                    <em *ngIf="validateControl('nombres') && hasError('nombres', 'maxlength')">No debe exceder de 15 caracteres</em>
+                    <em *ngIf="validateControl('nombres') && hasError('nombres', 'minlength')">Debe tener al menos 6 caracteres</em>
+                    <em *ngIf="validateControl('nombres') && hasError('nombres', 'required')">Nombres es requerido</em>
+                </div>
             </div>
             <div class="mb-3 row">
                 <label class="col-form-label col-sm-2">Apellidos: </label>
                 <div class="col-md-5">
-                    <input type="text" id="apellidos" formControlName="apellidos" class="form-control">
+                    <input type="text" id="apellidos" formControlName="apellidos" class="form-control" >
+                </div>
+                <div class="col-md-5">
+                    <em *ngIf="validateControl('apellidos') && hasError('apellidos', 'pattern')">Debe cumplir la expresion regular</em>
+                    <em *ngIf="validateControl('apellidos') && hasError('apellidos', 'required')">Apellidos es requerido</em>
                 </div>
             </div>
             <div class="mb-3 row">
@@ -19,11 +28,18 @@
                 <div class="col-md-5">
                     <input type="email" id="email" formControlName="email" class="form-control">
                 </div>
+                <div class="col-md-5">
+                    <em *ngIf="validateControl('email') && hasError('email', 'email')">Debe ser Email</em>
+                    <em *ngIf="validateControl('email') && hasError('email', 'required')">Email es requerido</em>
+                </div>
             </div>
             <div class="mb-3 row">
                 <label class="col-form-label col-sm-2">Password: </label>
                 <div class="col-md-5">
                     <input type="password" id="password" formControlName="password" class="form-control">
+                </div>
+                <div class="col-md-5">
+                    <em *ngIf="validateControl('password') && hasError('password', 'required')">Password es requerido</em>
                 </div>
             </div>
             <div class="mb-3 row">
@@ -31,11 +47,14 @@
                 <div class="col-md-5">
                     <input type="password" id="confirmarPassword" formControlName="confirmarPassword" class="form-control">
                 </div>
+                <div class="col-md-5">
+                    <em *ngIf="validateControl('confirmarPassword') && hasError('confirmarPassword', 'required')">Confirmar Password es requerido</em>
+                </div>
             </div>
             <br>
             <div class="mb-3 row">
                 <div class="col-md-1">
-                    <button type="button" class="btn btn-info" (click)="registrarUser()">Registrar</button>
+                    <button type="submit" class="btn btn-info" [disabled]="!registroUserForm.valid">Registrar</button>
                 </div>
             </div>
         </form>

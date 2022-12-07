@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-user',
@@ -15,11 +15,11 @@ export class RegisterUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.registroUserForm = new FormGroup({
-      nombres: new FormControl(''),
-      apellidos: new FormControl(''),
-      email: new FormControl(''),
-      password: new FormControl(''),
-      confirmarPassword: new FormControl(''),
+      nombres: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]),
+      apellidos: new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z\s\xF1\xD1]+$/)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
+      confirmarPassword: new FormControl('', [Validators.required]),
     });
   }
 
@@ -27,8 +27,15 @@ export class RegisterUserComponent implements OnInit {
     console.log(this.registroUserForm);
     this.user = this.registroUserForm.value;
     console.log('Valores de user', this.user);
+    
   }
 
+  validateControl(controlName: string) {
+    return this.registroUserForm.get(controlName)?.invalid && this.registroUserForm.get(controlName)?.touched;
+  }
+  hasError(controlName: string, errorName: string) {
+    return this.registroUserForm.get(controlName)?.hasError(errorName);
+  }
   
-
 }
+
